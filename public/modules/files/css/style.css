@@ -1,0 +1,62 @@
+html, body {
+    height: 100%;
+}
+
+#wrap {
+    min-height: 100%;
+    height: auto;
+    margin: 0 auto -60px;
+    padding: 0 0 60px;
+}
+
+#footer {
+    height: 60px;
+    background-color: black;
+    color: white;
+}
+
+.files-and-folders {
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    display: inline-block;
+}
+
+.files-and-folders ul {
+    margin-top: 100px;
+    padding: 0;
+    list-style: none;
+}
+
+.files-and-folders li {
+    float: left;
+    height: 120px;
+    width: 155px;
+    margin-top: 7px;
+    margin-bottom: 7px;
+}
+
+.files-and-folders div.wrap {
+    max-width: 155px;
+    margin: 0;
+}
+
+.files-and-folders li span {
+    font-size: 12px;    
+    display: block;
+    text-align: center;
+}
+
+.hidden {
+    display: none;
+}
+
+.pass-over {
+    position: absolute;
+    margin-top: 50px;
+}
+
+.starter-template {
+    padding: 15px;
+    text-align: center;
+}

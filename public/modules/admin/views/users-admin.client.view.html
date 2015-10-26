@@ -1,0 +1,28 @@
+<section>
+    <div class="h1">Liste des utilisateurs</div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th><h4><strong>Pseudo</strong></h4></th>
+                <th><h4><strong>Nom</strong></h4></th>
+                <th><h4><strong>Prénom</strong></h4></th>
+                <th><h4><strong>Email</strong></h4></th>
+                <th><h4><strong>Rôles</strong></h4></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="user in users">
+                <td>{{ user.username }}</td>
+                <td>{{ user.lastName }}</td>
+                <td>{{ user.firstName }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.roles[0] }}</td>
+                <td>
+                    <a ng-href="/#!/admin/users/{{ user._id }}">Edit</a> | 
+                    <a ng-href="#!/admin/users" ng-click="deleteUser(user, $index)">X</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>

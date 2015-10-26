@@ -1,0 +1,51 @@
+<section data-ng-controller="FilesController">
+    <div class="container">
+        <div class="starter-template">
+            <div class="files-and-folders">
+                <ul>
+                    <li ng-repeat="folder in filesPerDepth | filter: byFolder">
+                        <div class="wrap" ng-click="setVisibleFolder(folder)" ng-show="show === folder.name || show === false">
+                            <img src="modules/files/images/folder.png" width="100px" height="100px"></img>
+                            <span>{{ folder.name }}</span>
+                        </div>
+                        <div class="files-and-folders" ng-show="show === folder.name">
+                            <ul>
+                                <li ng-repeat="child in folder.items | filter: byFile" ng-click="displayGallery($event)">
+                                    <div class="wrap">
+                                        <img ng-src="/data/{{ folder.name }}/{{ child.name }}" width="100px" height="100px"></img>
+                                        <span>{{ child.name }}</span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li ng-repeat="file in filesPerDepth | filter: byFile" ng-show="show === file.name || show === false" ng-click="displayGallery($event, 'rootFolder')">
+                        <div class="wrap">
+                            <img ng-src="/data/{{ file.name }}" width="100px" height="100px"></img>
+                            <span>{{ file.name }}</span>
+                        </div>
+                    </li>
+                    <li ng-show="show !== false" ng-click="setVisibleFolder(undefined)">
+                        <div class="wrap">
+                            <img ng-src="modules/files/images/back.jpg" height="100px" width="100px"></img>
+                        </div>
+                    </li>
+                </ul>
+                <div class="hidden" id="links">
+                    <a data-gallery ng-repeat="file in currentFolderFiles" ng-href="{{ file.data.urls[0] }}">
+                        <img ng-src="{{ file.data.urls[0] }}"></img>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="blueimp-gallery-carousel" class="blueimp-gallery blueimp-gallery-carousel pass-over">
+        <div class="slides"></div>
+        <h3 class="title"></h3>
+        <a class="prev"></a>
+        <a class="next"></a>
+        <a class="play-pause"></a>
+        <a class="close"></a>
+        <ol class="indicator"></ol>
+    </div>
+</section>

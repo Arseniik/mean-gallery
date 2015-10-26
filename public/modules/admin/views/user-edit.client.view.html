@@ -1,0 +1,29 @@
+<section>
+    <div class="h1">Edition de {{ user.firstName }} {{ user.lastName }}</div>
+    <form ng-submit="editUser(user)">
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" class="form-control" id="username" placeholder="{{ user.username }}" name="username" data-ng-model="user.username">
+        </div>
+        <div class="form-group">
+            <label for="firstname">FirstName</label>
+            <input type="text" class="form-control" id="firstname" placeholder="{{ user.firstName }}" name="firstName" data-ng-model="user.firstName">
+        </div>
+        <div class="form-group">
+            <label for="lastname">LastName</label>
+            <input type="text" class="form-control" id="lastname" placeholder="{{ user.lastName }}" name="lastName" data-ng-model="user.lastName">
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="text" class="form-control" id="email" placeholder="{{ user.email }}" name="email" data-ng-model="user.email">
+        </div>
+        <div class="form-group">
+            <label for="role">Role</label>
+            <input type="text" class="form-control" id="role" placeholder="{{ user.roles[0] }}" name="role" data-ng-model="user.roles[0]">
+        </div>
+        <button type="submit" class="btn btn-default">Edit</button>
+        <a class="btn" href="#!/admin/users">Retour à la liste des utilisateurs</a>
+        <div class="" ng-show="success != ''">{{ success }}</div>
+        <div class="" ng-show="error != ''">{{ error }}</div>
+    </form>
+</section>

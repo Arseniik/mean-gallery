@@ -1,0 +1,33 @@
+<section>
+	<h3 class="col-md-12 text-center">Upload de photos</h3>
+	<div class="col-xs-offset-2 col-xs-9 col-md-offset-5 col-md-3">
+		<form class="signin form-horizontal" autocomplete="off" action="/files/upload" method="POST" enctype="multipart/form-data">
+			<fieldset>
+				<div class="form-group">
+					<label for="files">Sélectionner un dossier</label>
+					<input type="file" id="files" name="files" class="form-control" webkitdirectory multiple directory />
+				</div>
+				<div class="form-group">
+                    <label>Créer un dossier ?</label><br/>
+                    <input type="radio" value="true" name="createFolder" id="yes" ng-model="createFolder" ng-click="createFolder= true"><label for="yes">&nbsp;Oui</label>
+                    <input type="radio" id="no" value="false" name="createFolder" ng-click="createFolder = false" ng-model="createFolder" checked><label for="no">&nbsp;Non</label>
+                    <div ng-show="createFolder === false">
+                        <label for="selectedFolder">Sélectionner un dossier</label>
+                        <select id="selectedFolder" name="selectedFolder">
+                            <option value="root">&nbsp;</option>
+                            <option ng-repeat="test in dirs" value="{{ test }}">{{ test }}</option>
+                        </select>
+                        <p><em>Sélectionner le dossier "vide" uploadera les photos dans aucun dossier.</em></p>
+                    </div>
+                    <div ng-show="createFolder">
+                        <label for="folderName">Nom du dossier</label>
+                        <input type="text" value="" id="folderName" name="folderName" placeholder="Nom du dossier">
+                    </div>
+				</div>
+				<div class="text-center form-group">
+					<button type="submit" class="btn btn-primary">Uploader</button>
+				</div>
+			</fieldset>
+		</form>
+	</div>
+</section>
